@@ -1,0 +1,281 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Code Academy Courses Registration Form</title>
+    <link rel="stylesheet" href="{% static 'styleForm.css' %}" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body lang="en">
+    <div class="container">
+        <div class="title">
+            <img src="{% static 'CodeAcademyLogo.png' %}" alt="the_logo" id="logo">
+            <span id="form-title" class="fade visible">Code Academy Courses Registration Form</span>
+        </div>
+        <div class="language-selector language-selector-right" id="language-selector">
+            <div class="language-dropdown">
+                <img src="{% static 'languageIcon.png' %}" alt="Language" id="language-icon">
+                <div class="language-dropdown-content">
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('ar')">العربية</a>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <form method="post">
+                {% csrf_token %}
+                <div class="user-details">
+                    <div class="subdetails">
+                        <div class="subTitle fade visible" id="course-info">
+                            <p class="text">Course <span style="color: #F64B7D;" id="course-info-span"> Information</span></p>
+                        </div>
+                        <hr  />
+                        <div class="input-box">
+                            <span class="details fade visible" id="select-course">Select the Course</span>
+                            <select name="course" id="course-select" required>
+                                <option value="" disabled selected>The course</option>
+                                
+                            </select>
+                            <div id="course-price" class="course-price"></div>
+                        </div>
+                        <div class="input-box">
+                            <span class="details fade visible" id="discount-code">Discount Code</span>
+                            <input type="text" name="discount_code" placeholder="The Discount Code" />
+                        </div>
+                        <div class="input-box">
+                            <span class="details fade visible" id="payment-option">Payment Option</span>
+                            <select name="payment_option" class="course-select" required>
+                                <option value="" disabled selected>Select Payment Option</option>
+                                <option value="full">Full Payment</option>
+                                <option value="installment(50%)">Pay by Installment</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="subdetails">
+                        <div class="subTitle fade visible" id="personal-info">
+                            <p class="text">Personal <span style="color: #F64B7D;" id="personal-info-span"> Information</span></p>
+                        </div>
+                        <hr />
+                        <div class="input-box">
+                            <span class="details fade visible" id="full-name">Full Name</span>
+                            <input type="text" name="full_name" placeholder="Your full name" required />
+                        </div>
+                        <div class="input-box">
+                            <span class="details fade visible" id="category">Select the Category</span>
+                            <select name="category" class="course-select" required>
+                                <option value="" disabled selected>The Category</option>
+                                <option value="freelancer">Freelancer</option>
+                                <option value="employee">Employee</option>
+                                <option value="job_seeker">Job Seeker</option>
+                                <option value="student">University/College Student</option>
+                                <option value="passionate">Passionate</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details fade visible" id="email">Email</span>
+                            <input type="email" name="email" placeholder="email@gmail.com" required />
+                        </div>
+                        <div class="input-box">
+                            <span class="details fade visible" id="gender">Gender</span>
+                            <select name="gender" class="course-select" required>
+                                <option value="" disabled selected>Gender</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details fade visible" id="phone-number">Phone Number</span>
+                            <input type="text" name="phone_number" placeholder="+968 00000000" required />
+                        </div>
+                        <div class="input-box">
+                            <span class="details fade visible" id="civil-id">Civil/Resident ID</span>
+                            <input type="text" name="civil_id" placeholder="Enter your Civil/Resident ID" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Pay to complete the Registration" id="submit-button" class="fade visible" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                formTitle: "Code Academy Courses Registration Form",
+                courseInfo: "Course",
+                courseInfoSpan: "Information",
+                selectCourse: "Select the Course",
+                discountCode: "Discount Code",
+                personalInfo: "Personal",
+                personalInfoSpan: "Information",
+                fullName: "Full Name",
+                category: "Select the Category",
+                email: "Email",
+                gender: "Gender",
+                phoneNumber: "Phone Number",
+                civilId: "Civil/Resident ID",
+                paymentOption: "Payment Option",
+                submitButton: "Pay to complete the Registration",
+                languageLabel: "Language:",
+                placeholders: {
+                    fullName: "Your full name",
+                    discountCode: "The Discount Code",
+                    phoneNumber: "+968 00000000",
+                    civilId: "Enter your Civil/Resident ID",
+                    email: "email@gmail.com"
+                },
+                paymentOptions: {
+                    full: "الدفع الكامل",
+                    installment: "(٥٠٪)الدفع بالتقسيط"
+                }
+            },
+            ar: {
+                formTitle: "نموذج تسجيل دورات أكاديمية البرمجة",
+                courseInfo: "معلومات",
+                courseInfoSpan: "الدورة",
+                selectCourse: "اختر الدورة",
+                discountCode: "كود الخصم",
+                personalInfo: "معلومات",
+                personalInfoSpan: "شخصية",
+                fullName: "الاسم الكامل",
+                category: "اختر الفئة",
+                email: "البريد الإلكتروني",
+                gender: "الجنس",
+                phoneNumber: "رقم الهاتف",
+                civilId: "الهوية المدنية/الإقامة",
+                paymentOption: "خيار الدفع",
+                submitButton: "ادفع لإكمال التسجيل",
+                languageLabel: "اللغة:",
+                placeholders: {
+                    fullName: "ادخل الاسم الكامل",
+                    discountCode: "كود الخصم",
+                    phoneNumber: "+968 00000000",
+                    civilId: "أدخل هويتك المدنية/الإقامة",
+                    email: "البريد الإلكتروني"
+                }
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.body.setAttribute("lang", lang);
+            const languageSelector = document.getElementById("language-selector");
+            if (lang === "ar") {
+                languageSelector.classList.remove("language-selector-right");
+                languageSelector.classList.add("language-selector-left");
+            } else {
+                languageSelector.classList.remove("language-selector-left");
+                languageSelector.classList.add("language-selector-right");
+            }
+            document.getElementById("form-title").innerText = translations[lang].formTitle;
+            document.getElementById("course-info").innerHTML = `${translations[lang].courseInfo} <span style="color: #F64B7D;" id="course-info-span">${translations[lang].courseInfoSpan}</span>`;
+            document.getElementById("select-course").innerText = translations[lang].selectCourse;
+            document.getElementById("discount-code").innerText = translations[lang].discountCode;
+            document.getElementById("personal-info").innerHTML = `${translations[lang].personalInfo} <span style="color: #F64B7D;" id="personal-info-span">${translations[lang].personalInfoSpan}</span>`;
+            document.getElementById("full-name").innerText = translations[lang].fullName;
+            document.getElementById("category").innerText = translations[lang].category;
+            document.getElementById("email").innerText = translations[lang].email;
+            document.getElementById("gender").innerText = translations[lang].gender;
+            document.getElementById("phone-number").innerText = translations[lang].phoneNumber;
+            document.getElementById("civil-id").innerText = translations[lang].civilId;
+            document.getElementById("payment-option").innerText = translations[lang].paymentOption;
+            document.getElementById("submit-button").value = translations[lang].submitButton;
+
+            // Update input placeholders
+            document.querySelector('input[name="full_name"]').placeholder = translations[lang].placeholders.fullName;
+            document.querySelector('input[name="discount_code"]').placeholder = translations[lang].placeholders.discountCode;
+            document.querySelector('input[name="phone_number"]').placeholder = translations[lang].placeholders.phoneNumber;
+            document.querySelector('input[name="civil_id"]').placeholder = translations[lang].placeholders.civilId;
+            document.querySelector('input[name="email"]').placeholder = translations[lang].placeholders.email;
+
+            // Update category options
+            const categorySelect = document.querySelector('select[name="category"]');
+            categorySelect.innerHTML = lang === "en" ? `
+                <option value="" disabled selected>The Category</option>
+                <option value="freelancer">Freelancer</option>
+                <option value="employee">Employee</option>
+                <option value="job_seeker">Job Seeker</option>
+                <option value="student">University/College Student</option>
+                <option value="passionate">Passionate</option>
+            ` : `
+                <option value="" disabled selected>اختر الفئة</option>
+                <option value="freelancer">مستقل</option>
+                <option value="employee">موظف</option>
+                <option value="job_seeker">باحث عن عمل</option>
+                <option value="student">طالب جامعي/كلية</option>
+                <option value="passionate">شغوف</option>
+            `;
+
+            // Update gender options
+            const genderSelect = document.querySelector('select[name="gender"]');
+            genderSelect.innerHTML = lang === "en" ? `
+                <option value="" disabled selected>Gender</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            ` : `
+                <option value="" disabled selected>الجنس</option>
+                <option value="Female">أنثى</option>
+                <option value="Male">ذكر</option>
+            `;
+
+            // Update payment options
+            const paymentSelect = document.querySelector('select[name="payment_option"]');
+            paymentSelect.innerHTML = lang === "en" ? `
+                <option value="" disabled selected>Select Payment Option</option>
+                <option value="full">Full Payment</option>
+                <option value="installment">Pay by Installment(50%)</option>
+            ` : `
+                <option value="" disabled selected>اختر خيار الدفع</option>
+                <option value="full">الدفع الكامل</option>
+                <option value="installment">(٥٠٪)الدفع بالتقسيط</option>
+            `;
+
+            // Update select course options
+            const courseSelect = document.querySelector('select[name="course"]');
+            courseSelect.innerHTML = lang === "en" ? `
+            <option value="" disabled selected>The course</option>
+            ` : `
+                <option value="" disabled selected>اختر الدورة</option>
+
+            `;
+
+            // Apply fade transition
+            const elements = document.querySelectorAll('.fade');
+            elements.forEach(el => {
+                el.classList.remove('visible');
+                el.classList.add('hidden');
+                setTimeout(() => {
+                    el.classList.remove('hidden');
+                    el.classList.add('visible');
+                }, 500);
+            });
+        }
+        /*
+        // Update the price
+        document.getElementById('course-select').addEventListener('change', function() {
+            updatePrice();
+        });
+
+        document.getElementById('discount-code').addEventListener('input', function() {
+            updatePrice();
+        });
+
+        function updatePrice() {
+            let selectedCourse = document.getElementById('course-select');
+            let basePrice = parseFloat(selectedCourse.options[selectedCourse.selectedIndex].dataset.regular_price);
+        
+            let totalPrice = basePrice;
+        
+            // Apply discount code
+            let discount_code = document.getElementById('discount-code').value;
+            //let value= document.getElementById('discount-code').discount_value;
+
+            
+            document.getElementById('course-price').innerText = 'Price: ' + totalPrice.toFixed(2) + ' OMR';
+        }*/
+
+    </script>
+</body>
+</html>

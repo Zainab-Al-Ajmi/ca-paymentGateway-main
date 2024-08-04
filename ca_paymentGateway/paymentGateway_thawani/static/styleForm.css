@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url( 'https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #6262A8;
+  flex-direction: column;
+}
+.container{
+  max-width: 750px;
+  width: 100%;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+/*.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  border-radius: 5px;
+}*/
+.content form .user-details{
+  display: block;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0px 20px 0px;
+  width: 100%;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+  display: inline-block;
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+.user-details .input-box input{
+  height: 40px;
+  width: 100%;
+  outline: none;
+  font-size: 13px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #D9D9D9;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  color: #737373;
+  margin-bottom: 10px;
+}
+
+body[lang="ar"] .user-details .input-box input{ padding-right: 15px;}
+
+select {
+  height: 40px;
+  width: 100%;
+  outline: none;
+  font-size: 13px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #D9D9D9;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  appearance: none; /* Removes default arrow in most browsers */
+  color: #737373;
+}
+	
+body[lang="ar"] select{ padding-right: 15px;}
+	
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #F64B7D;
+}
+ form .gender-details .gender-title{
+  font-size: 20px;
+  font-weight: 500;
+ }
+ form .category{
+   display: flex;
+   width: 80%;
+   margin: 14px  ;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two
+{
+   background: #9b59b6;
+   border-color: #d9d9d9;
+}
+form input[type="radio"]{
+  display: none;
+}
+form .button{
+  height: 45px;
+  margin: 10px 0;
+}
+ form .button input{
+  height: 100%;
+  width: 54%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #F64B7D;
+  margin-left: 23%;
+ }
+ 
+ form .button input:hover{
+  /* transform: scale(0.99); */
+  background: #d9d9d9;
+  color:#F64B7D ;
+  }
+/*The phone screen*/
+@media(max-width: 584px)
+{
+  .container{
+    max-width: 100%;
+  }
+  .container .title{
+    font-size: 20px;
+  }
+  .user-details .input-box input{
+    font-size: 14px;
+  }
+  select { font-size: 14px;}
+  form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 100%;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  form .button input{
+    width: 100%;
+    margin-left: 0;
+    font-size: 15px;
+  }
+  .container .title span{
+    margin-left: 0px;
+  }
+  .container .title img{
+    margin-left: 0px;
+  }
+
+  body[lang="ar"] form .button input{ margin-right: 0;}
+
+}
+/*The Ipad screen*/
+@media(max-width: 1050px){
+  .user-details .input-box input{
+    font-size: 14px;
+  }
+  select { font-size: 14px;}
+  /*.subTitle hr{ margin-right: 35px;}*/
+}
+
+/*@media(max-width: 459px){
+  .container .content .category{
+    flex-direction: column;
+  }
+
+}*/
+
+form .subTitle{
+  font-weight: 500;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 17px;
+  letter-spacing: 3px;
+}
+
+form .subdetails{
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+.container .title img{
+  width: 40px;
+  height: 35px;
+  float: left;
+ /* margin-left: 15px;*/
+}
+
+.container .title span{
+  margin-left: 20px;
+}
+
+body[lang="ar"] .container .title span{ margin-right: 20px;}
+
+hr{
+  height: 1.5px; 
+  background-color: #FFC404; 
+  border: none;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+
+.language-selector {
+  margin: 10px;
+}
+.language-selector-right {
+  float: right;
+}
+.language-selector-left {
+  float: left;
+}
+body[lang="ar"] {
+  direction: rtl;
+  text-align: right;
+}
+body[lang="en"] {
+  direction: ltr;
+  text-align: left;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title img {
+  max-height: 50px;
+  margin-right: 10px; /* Adjust space between image and title */
+}
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.language-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+}
+.language-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.language-dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.language-dropdown:hover .language-dropdown-content {
+  display: block;
+}
+.fade {
+  transition: opacity 0.3s;
+}
+.hidden {
+  opacity: 0;
+}
+.visible {
+  opacity: 1;
+}
+.language-icon {
+  width: 40px;
+  height: 35px;
+}
+.title img {
+  max-height: 40px;
+  margin: 20px; 
+}
+.language-dropdown img {
+  width: 25px; 
+  height: 25px; 
+}
+
+body[lang="ar"] .container .title img{float: right;}
+body[lang="en"] .container .title img{float: left;}
+
+body[lang="ar"] .language-dropdown-content {
+  left: 0; 
+  right: auto; 
+}
+
+body[lang="en"] .language-dropdown-content {
+  right: 0; 
+  left: auto; 
+}
+
+body[lang="ar"] *{ font-family: 'Tajawal';}
+body[lang="ar"] form .button input{ margin-right: 23%;}
+
