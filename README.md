@@ -27,8 +27,14 @@ This Django application handles the registration and payment process for courses
 - **Course**
     - Represents a course that users can register for.
     
+- **DiscountCode**
+    - Represents the active dicount codes and the discount percetage for each..
+
 - **CourseRegistration**
     - Represents a user's registration for a course, including personal details and selected course information.
+
+- **Sublevels**
+    - Represents the course sublevels if they have existed.
 
 #### Configuration
 
